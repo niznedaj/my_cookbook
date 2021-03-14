@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+    <h2>AddRecipe</h2>
+    Add your recipe here:
+    <form action="{{url_for('add_recipe')}}" method="post">
+      <dl>
+        <dt>Name:
+        <dd><input type=text size=30 name=title>
+        <dt>Details:
+        <dd><textarea name=text rows=5 cols=40></textarea>
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+{% endblock %}

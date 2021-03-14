@@ -18,6 +18,8 @@
                 <li><a href="/contact/">contact</a></li>
                 <hr id="nav2"/>
                 {% if 'username' in session %}
+                <li><a href="{{url_for('add_recipe')}}">add recipe</a>
+                <li><a href="{{url_for('view_recipes')}}">view recipes</a>
                 <li><a href="{{url_for('login')}}">logout</a>
                 {% else %}
                 <li><a href="{{url_for('login')}}">login</a>
