@@ -1,3 +1,8 @@
+# the following were added by me
+.idea/
+*.log
+
+#Everything below here was added by the Python Template in GitHub
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
