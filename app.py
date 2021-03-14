@@ -3,6 +3,7 @@ import settings
 
 # Views
 from main import Main
+from login import Login
 
 app = flask.Flask(__name__)
 app.secret_key = settings.secret_key
@@ -13,6 +14,9 @@ app.add_url_rule('/',
                  methods=["GET", "POST"])
 app.add_url_rule('/<page>/',
                  view_func=Main.as_view('page'),
+                 methods=["GET", "POST"])
+app.add_url_rule('/login/',
+                 view_func=Login.as_view('login'),
                  methods=["GET", "POST"])
 
 

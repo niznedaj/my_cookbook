@@ -16,6 +16,13 @@
                 <li><a href="{{url_for('main')}}">index</a></li>
                 <li><a href="/about/">about</a></li>
                 <li><a href="/contact/">contact</a></li>
+                <hr id="nav2"/>
+                {% if 'username' in session %}
+                <li><a href="{{url_for('login')}}">logout</a>
+                {% else %}
+                <li><a href="{{url_for('login')}}">login</a>
+                {% endif %}
+
             </ul>
         </div>
         <div id="flashed">
