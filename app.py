@@ -1,12 +1,21 @@
 import flask.views
 import settings
-
+import os
+from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 # Views
 from main import Main
 from login import Login
 
-app = flask.Flask(__name__)
-app.secret_key = settings.secret_key
+# create the appliaction
+app = Flask(__name__)
+app.config.from_object(__name__)
+
+# Load default config and override config from an environment variable
+app.config.update(dict(
+    DATABASE=os.path.join(app.root_path, settings.db_name),
+    SECRET_KEY=settings.secret_key,
+))
+app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
 # Routes
 app.add_url_rule('/',
@@ -22,7 +31,7 @@ app.add_url_rule('/login/',
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return flask.render_template('404.html'), 404
+    return render_template('404.html'), 404
 
 
 app.debug = True
