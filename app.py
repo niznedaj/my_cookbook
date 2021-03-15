@@ -5,8 +5,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 # Views
 from main import Main
 from login import Login
-from recipeadd import RecipeAdd
-from recipeviewall import RecipeViewAll
+import recipes
 
 # create the application
 app = Flask(__name__)
@@ -29,11 +28,11 @@ app.add_url_rule('/<page>/',
 app.add_url_rule('/login/',
                  view_func=Login.as_view('login'),
                  methods=["GET", "POST"])
-app.add_url_rule('/add_recipe/',
-                 view_func=RecipeAdd.as_view('add_recipe'),
+app.add_url_rule('/recipes/add/',
+                 view_func=recipes.Add.as_view('add_recipe'),
                  methods=["GET", "POST"])
-app.add_url_rule('/view_recipes/',
-                 view_func=RecipeViewAll.as_view('view_recipes'),
+app.add_url_rule('/recipes/view_all/',
+                 view_func=recipes.ViewAll.as_view('view_recipes'),
                  methods=["GET", "POST"])
 
 
