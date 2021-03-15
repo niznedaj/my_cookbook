@@ -4,10 +4,12 @@
     Add your recipe here:
     <form action="{{url_for('add_recipe')}}" method="post">
       <dl>
-        <dt>Name:
-        <dd><input type=text size=30 name=title>
-        <dt>Details:
-        <dd><textarea name=text rows=5 cols=40></textarea>
+        <dt>Recipe Name:
+        <dd><input type=text size=30 name=recipe_name>
+        <dt>Ingredients:
+        <dd><textarea name=ingredients rows=5 cols=40></textarea>
+        <dt>Steps:
+        <dd><textarea name=steps rows=5 cols=40></textarea>
         <dd><input type=submit value=Share>
       </dl>
     </form>
