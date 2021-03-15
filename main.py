@@ -2,6 +2,7 @@ import flask
 import flask.views
 import os
 
+
 class Main(flask.views.MethodView):
     def get(self, page='index'):
         page += '.html'

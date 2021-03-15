@@ -2,7 +2,7 @@ import flask
 import flask.views
 
 
-class Recipe_add(flask.views.MethodView):
+class RecipeAdd(flask.views.MethodView):
     def get(self):
         return flask.render_template('add_recipe.html')
 

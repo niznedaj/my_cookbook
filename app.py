@@ -5,10 +5,10 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 # Views
 from main import Main
 from login import Login
-from recipe_add import Recipe_add
-from recipe_view_all import Recipe_view_all
+from recipeadd import RecipeAdd
+from recipeviewall import RecipeViewAll
 
-# create the appliaction
+# create the application
 app = Flask(__name__)
 app.config.from_object(__name__)
 
@@ -30,12 +30,11 @@ app.add_url_rule('/login/',
                  view_func=Login.as_view('login'),
                  methods=["GET", "POST"])
 app.add_url_rule('/add_recipe/',
-                 view_func=Recipe_add.as_view('add_recipe'),
+                 view_func=RecipeAdd.as_view('add_recipe'),
                  methods=["GET", "POST"])
 app.add_url_rule('/view_recipes/',
-                 view_func=Recipe_view_all.as_view('view_recipes'),
+                 view_func=RecipeViewAll.as_view('view_recipes'),
                  methods=["GET", "POST"])
-
 
 
 @app.errorhandler(404)
